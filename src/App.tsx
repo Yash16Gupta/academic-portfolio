@@ -120,7 +120,7 @@ export default function App() {
     {
       title: "Self-Driving Car Path Tracking & Controls",
       lab: "Unmesh Mashruwala Innovation Cell (UMIC), IIT Bombay",
-      date: "Nov 2023 - Jul 24",
+      date: "Nov 2023 - Jul 2024",
       desc: [
         "Developed geometry-based controllers for high-speed autonomous vehicle path tracking operating at 200 Hz.",
         "Implemented Model Predictive Control (MPC) and MPCC tracking models with dynamic obstacle avoidance.",
