@@ -251,21 +251,21 @@ export default function App() {
       </nav>
 
       <main className="max-w-4xl mx-auto px-4 md:px-6 py-8 md:py-12 space-y-16 md:space-y-20">
-        {/* Hero Identity Section - Fixed side-by-side view for both Mobile and PC */}
-        <section className="flex flex-row justify-between items-start gap-4 md:gap-8 pt-2 md:pt-6">
-          <div className="space-y-4 md:space-y-6 max-w-2xl flex-grow">
+        {/* Hero Identity Section - Balanced side-by-side view for mobile and desktop */}
+        <section className="flex flex-row items-center justify-between gap-4 pt-4 md:pt-6">
+          <div className="space-y-4 max-w-[70%] md:max-w-2xl flex-grow">
             <div className="space-y-2 md:space-y-4">
               <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
                 Yash Gupta
               </h1>
               <div className="border-l-2 border-blue-500 pl-3 md:pl-4 space-y-0.5 py-0.5">
-                <p className="text-[9px] md:text-xs font-bold uppercase tracking-widest text-blue-600">
+                <p className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-blue-600">
                   Final Year Dual Degree
                 </p>
-                <p className="text-sm md:text-xl font-bold text-slate-800 tracking-tight">
+                <p className="text-base md:text-xl font-bold text-slate-800 tracking-tight">
                   Engineering Physics
                 </p>
-                <p className="text-[11px] md:text-sm font-medium text-slate-500 tracking-wide leading-tight">
+                <p className="text-xs md:text-sm font-medium text-slate-500 tracking-wide leading-tight">
                   Indian Institute of Technology Bombay
                 </p>
               </div>
@@ -310,8 +310,8 @@ export default function App() {
             </div>
           </div>
 
-          {/* Picture frame adjusts cleanly down to 24x24 px on tiny phones up to 48x64 px on PC */}
-          <div className="w-20 h-24 sm:w-32 sm:h-40 md:w-48 md:h-64 rounded-xl md:rounded-2xl border border-slate-200/80 overflow-hidden shrink-0 shadow-md bg-slate-100 transition duration-200 hover:shadow-lg mt-1">
+          {/* Explicit layout boundaries prevent the photo frame from drifting too far right */}
+          <div className="w-24 h-32 sm:w-32 sm:h-40 md:w-48 md:h-64 rounded-xl md:rounded-2xl border border-slate-200/80 overflow-hidden shrink-0 shadow-sm bg-slate-100 mt-1">
             <img 
               src="/images/Self.png" 
               alt="Yash Gupta" 
