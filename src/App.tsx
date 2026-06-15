@@ -96,7 +96,7 @@ export default function App() {
     {
       title: "5km Free Space Optical Link Simulation",
       lab: "QNu Labs Private Limited, Bangalore, India (Remote)",
-      date: "May 25 - Jul 25",
+      date: "May 2025 - Jul 2025",
       desc: [
         "Simulated Gaussian beam propagation through turbulent media, tracking irradiance fluctuations via Monte Carlo modeling.",
         "Analyzed propagation limits across fluctuation regimes using Rytov theory to evaluate beam wander.",
