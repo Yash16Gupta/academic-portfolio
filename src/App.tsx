@@ -40,6 +40,8 @@ interface LeadershipItem {
 
 export default function App() {
   const [expandedPaper, setExpandedPaper] = useState<number | null>(null);
+  const [activeProjectTouch, setActiveProjectTouch] = useState<number | null>(null);
+  const [activeLeadTouch, setActiveLeadTouch] = useState<number | null>(null);
 
   const education: EducationItem[] = [
     {
@@ -182,7 +184,7 @@ export default function App() {
   const leadership: LeadershipItem[] = [
     {
       role: "Undergraduate Teaching Assistant",
-      initiative: "Light-Matter Interaction & Introduction to Classical and Quantum Mechanics, Department of Physics, IIT Bombay",  
+      initiative: "PH530: Light-Matter Interaction, PH110: Introduction to Classical and Quantum Mechanics",  
       date: "Jan 2026 - Apr 2026",
       desc: "Designed and structured comprehensive assessments, including weekly quizzes and examinations, tailored for a diverse cohort of 100+ undergraduate, postgraduate, and doctoral students. Delivered specialized guest lectures on advanced quantum mechanics concepts, such as the Jaynes-Cummings model and the BB84 protocol.",
       image: "/images/ta.png"
@@ -234,7 +236,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-blue-100 antialiased">
-      {/* Sticky Navigation bar - Optimized for Mobile Swipe/Scroll view */}
+      {/* Sticky Navigation bar */}
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 px-4 md:px-6 py-4">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-3 md:gap-0">
           <span className="font-semibold tracking-tight text-lg text-blue-600 hidden md:inline">Yash Gupta</span>
@@ -251,11 +253,12 @@ export default function App() {
       </nav>
 
       <main className="max-w-4xl mx-auto px-4 md:px-6 py-8 md:py-12 space-y-16 md:space-y-20">
-        {/* Hero Identity Section - Balanced side-by-side view for mobile and desktop */}
+        
+        {/* Hero Identity Section */}
         <section className="flex flex-row items-center justify-between gap-4 pt-4 md:pt-6">
           <div className="space-y-4 max-w-[70%] md:max-w-2xl flex-grow">
             <div className="space-y-2 md:space-y-4">
-              <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
+              <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-4xl Holiday md:text-5xl">
                 Yash Gupta
               </h1>
               <div className="border-l-2 border-blue-500 pl-3 md:pl-4 space-y-0.5 py-0.5">
@@ -310,7 +313,6 @@ export default function App() {
             </div>
           </div>
 
-          {/* Explicit layout boundaries prevent the photo frame from drifting too far right */}
           <div className="w-24 h-32 sm:w-32 sm:h-40 md:w-48 md:h-64 rounded-xl md:rounded-2xl border border-slate-200/80 overflow-hidden shrink-0 shadow-sm bg-slate-100 mt-1">
             <img 
               src="/images/Self.png" 
@@ -460,22 +462,30 @@ export default function App() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {projects.map((proj, idx) => (
-              <div key={idx} className="flex flex-col bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-200">
-                
-                {/* Image Container with Dynamic Interactive Overlay */}
+              <div 
+                key={idx} 
+                onClick={() => setActiveProjectTouch(activeProjectTouch === idx ? null : idx)}
+                className="flex flex-col bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-200 cursor-pointer md:cursor-default"
+              >
                 <div className="relative w-full h-44 md:h-48 bg-slate-950 overflow-hidden group">
                   <img 
                     src={proj.image} 
                     alt={proj.title} 
-                    className="w-full h-full object-cover opacity-80 group-hover:scale-105 group-hover:opacity-20 transition duration-300"
+                    className={`w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-300 ${
+                      activeProjectTouch === idx ? 'opacity-20 scale-105' : 'group-hover:opacity-20'
+                    }`}
                   />
                   <span className="absolute top-3 right-3 text-[10px] font-bold tracking-wider px-2 py-1 bg-slate-900/90 text-white rounded backdrop-blur-sm uppercase z-10">
                     {proj.date}
                   </span>
                   
-                  {/* Contributions box optimized for mobile touch visibility / hover */}
-                  <div className="absolute inset-0 p-4 overflow-y-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center bg-slate-950/90 select-none">
-                    <span className="text-[10px] uppercase tracking-widest text-blue-400 font-bold mb-1">Key Contributions</span>
+                  <div className={`absolute inset-0 p-4 overflow-y-auto transition-opacity duration-300 flex flex-col justify-center bg-slate-950/90 select-none ${
+                    activeProjectTouch === idx ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                  }`}>
+                    <div className="flex justify-between items-center mb-1">
+                      <span className="text-[10px] uppercase tracking-widest text-blue-400 font-bold">Key Contributions</span>
+                      <span className="text-[9px] text-slate-400 md:hidden">Tap card to close</span>
+                    </div>
                     <ul className="list-disc list-inside space-y-1 text-[11px] text-slate-200 leading-normal">
                       {proj.desc.map((bullet, bIdx) => (
                         <li key={bIdx} className="align-top"><span className="inline-block max-w-[92%] align-top">{bullet}</span></li>
@@ -484,7 +494,6 @@ export default function App() {
                   </div>
                 </div>
                 
-                {/* Unified Context Block */}
                 <div className="flex flex-col flex-grow p-4 md:p-5 space-y-3 bg-white">
                   <div className="space-y-0.5">
                     <h3 className="font-extrabold text-sm md:text-base text-slate-950 tracking-tight leading-snug line-clamp-2">
@@ -497,10 +506,13 @@ export default function App() {
                   
                   <div className="flex flex-wrap gap-1.5 pt-1 items-center">
                     {proj.tools.map((tool, tIdx) => (
-                      <span key={tIdx} className={`text-[9px] md:text-[10px] font-bold tracking-wide px-2.5 py-0.5 rounded border shadow-sm border-transparent transform hover:scale-105 transition duration-150 ${getToolBadgeColor(tIdx)}`}>
+                      <span key={tIdx} className={`text-[9px] md:text-[10px] font-bold tracking-wide px-2.5 py-0.5 rounded border shadow-sm border-transparent ${getToolBadgeColor(tIdx)}`}>
                         {tool}
                       </span>
                     ))}
+                  </div>
+                  <div className="text-[10px] font-medium text-slate-400 md:hidden pt-1 border-t border-slate-100 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" /> Tap card to see contributions
                   </div>
                 </div>
               </div>
@@ -556,7 +568,6 @@ export default function App() {
                   )}
                 </div>
 
-                {/* Modified full-width mobile action layout blocks */}
                 <div className="flex flex-row md:flex-col items-center gap-2 shrink-0 w-full md:w-auto pt-4 md:pt-0 border-t border-slate-100 md:border-none mt-2 md:mt-0">
                   <button 
                     onClick={() => setExpandedPaper(expandedPaper === idx ? null : idx)}
@@ -586,34 +597,71 @@ export default function App() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {leadership.map((lead, idx) => (
-              <div key={idx} className="flex flex-col bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-200">
-                
-                {/* Image Container with Absolute Hover Text Overlay */}
+              <div 
+                key={idx} 
+                onClick={() => setActiveLeadTouch(activeLeadTouch === idx ? null : idx)}
+                className="flex flex-col bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-200 cursor-pointer md:cursor-default"
+              >
                 <div className="relative w-full h-44 bg-slate-950 overflow-hidden group">
                   <img 
                     src={lead.image} 
                     alt={lead.initiative} 
-                    className="w-full h-full object-cover opacity-80 group-hover:scale-105 group-hover:opacity-20 transition duration-300"
+                    className={`w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-300 ${
+                      activeLeadTouch === idx ? 'opacity-20 scale-105' : 'group-hover:opacity-20'
+                    }`}
                   />
                   <span className="absolute top-3 right-3 text-[10px] font-semibold px-2 py-0.5 bg-slate-900/70 text-white rounded backdrop-blur-sm z-10">
                     {lead.date}
                   </span>
                   
-                  <div className="absolute inset-0 p-5 overflow-y-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center bg-slate-950/90 select-none">
-                    <span className="text-[10px] uppercase tracking-widest text-blue-400 font-bold mb-1">Impact Overview</span>
+                  <div className={`absolute inset-0 p-5 overflow-y-auto transition-opacity duration-300 flex flex-col justify-center bg-slate-950/90 select-none ${
+                    activeLeadTouch === idx ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                  }`}>
+                    <div className="flex justify-between items-center mb-1">
+                      <span className="text-[10px] uppercase tracking-widest text-blue-400 font-bold">Impact Overview</span>
+                      <span className="text-[9px] text-slate-400 md:hidden">Tap card to close</span>
+                    </div>
                     <p className="text-xs text-slate-200 leading-relaxed">{lead.desc}</p>
                   </div>
                 </div>
 
-                {/* Unified Context Block - No extra margin/padding gaps */}
                 <div className="flex flex-col flex-grow p-4 md:p-5 space-y-2 bg-white">
-                  <div className="space-y-0.5">
+                  <div className="space-y-1">
                     <h3 className="font-extrabold text-sm md:text-base text-slate-950 tracking-tight leading-snug line-clamp-2">
                       {lead.role}
                     </h3>
-                    <p className="text-[11px] md:text-xs font-semibold text-blue-600 tracking-wide">
-                      {lead.initiative}
-                    </p>
+                    
+                    {lead.role === "Undergraduate Teaching Assistant" && lead.initiative.includes('&') ? (
+                      <div className="flex flex-col space-y-1 pt-0.5">
+                        {(() => {
+                          const [coursesPart, deptPart] = lead.initiative.split(', ');
+                          const individualCourses = coursesPart.split(' & ');
+                          return (
+                            <>
+                              <ul className="list-disc list-inside space-y-0.5">
+                                {individualCourses.map((course, cIdx) => (
+                                  <li key={cIdx} className="text-xs font-semibold text-blue-600 tracking-wide">
+                                    <span className="align-middle">{course}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                              {deptPart && (
+                                <p className="text-[11px] font-medium text-slate-500 tracking-wide pt-0.5">
+                                  {deptPart}, IIT Bombay
+                                </p>
+                              )}
+                            </>
+                          );
+                        })()}
+                      </div>
+                    ) : (
+                      <p className="text-xs font-semibold text-blue-600 tracking-wide">
+                        {lead.initiative}
+                      </p>
+                    )}
+                  </div>
+                  <div className="text-[10px] font-medium text-slate-400 md:hidden pt-1 border-t border-slate-100 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" /> Tap card to see impact description
                   </div>
                 </div>
               </div>
