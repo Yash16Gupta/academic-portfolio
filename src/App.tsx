@@ -256,7 +256,7 @@ export default function App() {
           <div className="space-y-6 max-w-2xl w-full">
             <div className="space-y-4">
               <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 md:text-5xl">
-                Yash Gupta
+                Yash K. Gupta
               </h1>
               <div className="border-l-2 border-blue-500 pl-4 space-y-1 py-0.5">
                 <p className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-blue-600">
