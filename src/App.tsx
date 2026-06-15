@@ -234,55 +234,55 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-blue-100 antialiased">
-      {/* Sticky Navigation bar */}
-      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 px-6 py-4">
-        <div className="max-w-4xl mx-auto flex justify-between items-center">
-          <span className="font-semibold tracking-tight text-lg text-blue-600">Yash Gupta</span>
-          <div className="flex gap-6 text-sm font-medium text-slate-600">
-            <a href="#interests" className="hover:text-blue-600 transition">Interests</a>
-            <a href="#education" className="hover:text-blue-600 transition">Education</a>
-            <a href="#research" className="hover:text-blue-600 transition">Research</a>
-            <a href="#publications" className="hover:text-blue-600 transition">Publications</a>
-            <a href="#mentorship" className="hover:text-blue-600 transition">Leadership</a>
-            <a href="#coursework" className="hover:text-blue-600 transition">Coursework</a>
-            <a href="#extracurricular" className="hover:text-blue-600 transition">Activities</a>
+      {/* Sticky Navigation bar - Optimized for Mobile Swipe/Scroll view */}
+      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 px-4 md:px-6 py-4">
+        <div className="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-3 md:gap-0">
+          <span className="font-semibold tracking-tight text-lg text-blue-600 hidden md:inline">Yash Gupta</span>
+          <div className="flex w-full md:w-auto gap-5 text-sm font-medium text-slate-600 overflow-x-auto whitespace-nowrap pb-1 md:pb-0 scrollbar-none snap-x">
+            <a href="#interests" className="hover:text-blue-600 transition snap-start">Interests</a>
+            <a href="#education" className="hover:text-blue-600 transition snap-start">Education</a>
+            <a href="#research" className="hover:text-blue-600 transition snap-start">Research</a>
+            <a href="#publications" className="hover:text-blue-600 transition snap-start">Publications</a>
+            <a href="#mentorship" className="hover:text-blue-600 transition snap-start">Leadership</a>
+            <a href="#coursework" className="hover:text-blue-600 transition snap-start">Coursework</a>
+            <a href="#extracurricular" className="hover:text-blue-600 transition snap-start">Activities</a>
           </div>
         </div>
       </nav>
 
-      <main className="max-w-4xl mx-auto px-6 py-12 space-y-20">
+      <main className="max-w-4xl mx-auto px-4 md:px-6 py-8 md:py-12 space-y-16 md:space-y-20">
         {/* Hero Identity Section */}
-        <section className="flex flex-col-reverse md:flex-row justify-between items-start gap-8 pt-6">
+        <section className="flex flex-col-reverse md:flex-row justify-between items-start gap-6 md:gap-8 pt-2 md:pt-6">
           <div className="space-y-6 max-w-2xl w-full">
             <div className="space-y-4">
-              <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl">
+              <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 md:text-5xl">
                 Yash Gupta
               </h1>
               <div className="border-l-2 border-blue-500 pl-4 space-y-1 py-0.5">
-                <p className="text-xs font-bold uppercase tracking-widest text-blue-600">
+                <p className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-blue-600">
                   Final Year Dual Degree
                 </p>
-                <p className="text-xl font-bold text-slate-800 tracking-tight">
+                <p className="text-lg md:text-xl font-bold text-slate-800 tracking-tight">
                   Engineering Physics
                 </p>
-                <p className="text-sm font-medium text-slate-500 tracking-wide">
+                <p className="text-xs md:text-sm font-medium text-slate-500 tracking-wide">
                   Indian Institute of Technology Bombay
                 </p>
               </div>
             </div>
             
-            <div className="flex flex-wrap items-center gap-3 pt-2 w-full">
-              <div className="inline-flex items-center gap-2.5 bg-white border border-slate-200 px-3 py-2 rounded-lg text-sm font-medium text-slate-700 shadow-sm shrink-0">
+            <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-3 pt-2 w-full">
+              <div className="inline-flex items-center gap-2.5 bg-white border border-slate-200 px-3 py-2 rounded-lg text-sm font-medium text-slate-700 shadow-sm w-full sm:w-auto overflow-x-auto scrollbar-none">
                 <Mail size={16} className="text-slate-400 shrink-0" />
                 <div className="flex items-center gap-2 text-xs md:text-sm whitespace-nowrap">
                   <a href="mailto:yash.gupta@iitb.ac.in" className="hover:text-blue-600 transition duration-150">yash.gupta@iitb.ac.in</a>
                   <span className="text-slate-200 pointer-events-none">|</span>
-                  <a href="mailto:yashgupta16052005@gmail.com" className="hover:text-blue-600 transition duration-150 text-slate-500">yashgupta16052005@gmail.com</a>
+                  <a href="mailto:yashgupta16052005@gmail.com" className="hover:text-blue-600 transition duration-150 text-slate-400">yashgupta16052005@gmail.com</a>
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center gap-2">
-                <a href="https://github.com/Yash16Gupta" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-white border border-slate-200 px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition duration-150 shadow-sm whitespace-nowrap">
+              <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+                <a href="https://github.com/Yash16Gupta" target="_blank" rel="noreferrer" className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-white border border-slate-200 px-3 py-2 rounded-lg text-xs md:text-sm font-medium text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition duration-150 shadow-sm whitespace-nowrap">
                   <svg className="w-4 h-4 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
                     <path d="M9 18c-4.51 2-5-2-7-2" />
@@ -290,7 +290,7 @@ export default function App() {
                   GitHub
                 </a>
                 
-                <a href="https://www.linkedin.com/in/yashgupta1397" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-white border border-slate-200 px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition duration-150 shadow-sm whitespace-nowrap">
+                <a href="https://www.linkedin.com/in/yashgupta1397" target="_blank" rel="noreferrer" className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-white border border-slate-200 px-3 py-2 rounded-lg text-xs md:text-sm font-medium text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition duration-150 shadow-sm whitespace-nowrap">
                   <svg className="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                     <rect width="4" height="12" x="2" y="9" />
@@ -299,7 +299,7 @@ export default function App() {
                   LinkedIn
                 </a>
                 
-                <a href="https://scholar.google.com/citations?user=zyANulwAAAAJ&hl=en" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-white border border-slate-200 px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition duration-150 shadow-sm whitespace-nowrap">
+                <a href="https://scholar.google.com/citations?user=zyANulwAAAAJ&hl=en" target="_blank" rel="noreferrer" className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-white border border-slate-200 px-3 py-2 rounded-lg text-xs md:text-sm font-medium text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition duration-150 shadow-sm whitespace-nowrap">
                   <svg className="w-4 h-4 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
                     <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
@@ -310,7 +310,7 @@ export default function App() {
             </div>
           </div>
 
-          <div className="w-full md:w-48 h-64 rounded-2xl border border-slate-200/80 overflow-hidden shrink-0 shadow-md bg-slate-100 transition duration-200 hover:shadow-lg">
+          <div className="w-24 h-24 md:w-48 md:h-64 rounded-2xl border border-slate-200/80 overflow-hidden shrink-0 shadow-md bg-slate-100 transition duration-200 hover:shadow-lg self-start md:self-auto">
             <img 
               src="/images/Self.png" 
               alt="Yash Gupta" 
@@ -321,11 +321,11 @@ export default function App() {
 
         {/* Research Interests Section */}
         <section id="interests" className="space-y-6">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
+          <h2 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
             <Lightbulb size={22} className="text-blue-500" /> Research Interests
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 pt-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 pt-2">
             <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between border-t-4 border-t-blue-600">
               <div className="space-y-3">
                 <div className="flex flex-col space-y-0.5">
@@ -348,7 +348,7 @@ export default function App() {
             <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between border-t-4 border-t-blue-500">
               <div className="space-y-3">
                 <div className="flex flex-col space-y-0.5">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-blue-600">Physics Focus</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-blue-500">Physics Focus</span>
                   <h3 className="font-bold text-slate-900 tracking-tight text-sm uppercase">Frameworks</h3>
                 </div>
                 <ul className="space-y-2 text-xs text-slate-600 font-medium leading-relaxed">
@@ -414,7 +414,7 @@ export default function App() {
 
         {/* Education Section */}
         <section id="education" className="space-y-6">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
+          <h2 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
             <GraduationCap size={22} className="text-blue-500" /> Education
           </h2>
           
@@ -422,28 +422,28 @@ export default function App() {
             {education.map((edu, idx) => (
               <div 
                 key={idx} 
-                className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col md:flex-row justify-between gap-4"
+                className="bg-white border border-slate-200 rounded-xl p-5 md:p-6 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col md:flex-row justify-between gap-4"
               >
                 <div className="space-y-3 max-w-2xl">
                   <div>
-                    <h3 className="text-lg font-bold text-slate-900 tracking-tight leading-snug">
+                    <h3 className="text-base md:text-lg font-bold text-slate-900 tracking-tight leading-snug">
                       {edu.institution}
                     </h3>
-                    <p className="text-sm font-semibold text-blue-600 mt-0.5">
+                    <p className="text-xs md:text-sm font-semibold text-blue-600 mt-0.5">
                       {edu.degree}
                     </p>
                   </div>
                   <div className="flex flex-wrap gap-2 pt-1">
-                    <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 bg-blue-50/50 border border-blue-100 text-blue-700 rounded-lg shadow-sm">
+                    <span className="text-[10px] md:text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 bg-blue-50/50 border border-blue-100 text-blue-700 rounded-lg shadow-sm">
                       {edu.details[1]}
                     </span>
                   </div>
-                  <p className="text-xs text-slate-500 font-medium leading-relaxed pt-1">
+                  <p className="text-[11px] md:text-xs text-slate-500 font-medium leading-relaxed pt-1">
                     <span className="text-slate-700 font-semibold">Minor Degree:</span> {edu.details[2]}
                   </p>
                 </div>
-                <div className="shrink-0 pt-1 md:pt-0">
-                  <span className="inline-block text-xs font-bold px-3 py-1 bg-slate-100 text-slate-600 rounded-lg tracking-wide uppercase">
+                <div className="shrink-0 pt-1 md:pt-0 self-start md:self-auto">
+                  <span className="inline-block text-[10px] md:text-xs font-bold px-3 py-1 bg-slate-100 text-slate-600 rounded-lg tracking-wide uppercase">
                     {edu.duration}
                   </span>
                 </div>
@@ -454,15 +454,15 @@ export default function App() {
 
         {/* Research & Technical Experience Layout */}
         <section id="research" className="space-y-6">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
+          <h2 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
             <Code size={22} className="text-blue-600" /> Research & Technical Experience
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {projects.map((proj, idx) => (
               <div key={idx} className="flex flex-col bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-200">
                 
-                {/* Image Container with Absolute Hover Text Overlay */}
-                <div className="relative w-full h-48 bg-slate-950 overflow-hidden group">
+                {/* Image Container with Dynamic Interactive Overlay */}
+                <div className="relative w-full h-44 md:h-48 bg-slate-950 overflow-hidden group">
                   <img 
                     src={proj.image} 
                     alt={proj.title} 
@@ -472,6 +472,7 @@ export default function App() {
                     {proj.date}
                   </span>
                   
+                  {/* Contributions box optimized for mobile touch visibility / hover */}
                   <div className="absolute inset-0 p-4 overflow-y-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center bg-slate-950/90 select-none">
                     <span className="text-[10px] uppercase tracking-widest text-blue-400 font-bold mb-1">Key Contributions</span>
                     <ul className="list-disc list-inside space-y-1 text-[11px] text-slate-200 leading-normal">
@@ -482,20 +483,20 @@ export default function App() {
                   </div>
                 </div>
                 
-                {/* Unified Context Block - No extra margin/padding gaps */}
-                <div className="flex flex-col flex-grow p-5 space-y-3 bg-white">
+                {/* Unified Context Block */}
+                <div className="flex flex-col flex-grow p-4 md:p-5 space-y-3 bg-white">
                   <div className="space-y-0.5">
-                    <h3 className="font-extrabold text-base text-slate-950 tracking-tight leading-snug line-clamp-2">
+                    <h3 className="font-extrabold text-sm md:text-base text-slate-950 tracking-tight leading-snug line-clamp-2">
                       {proj.title}
                     </h3>
-                    <p className="text-xs font-semibold text-blue-600 tracking-wide">
+                    <p className="text-[11px] md:text-xs font-semibold text-blue-600 tracking-wide">
                       {proj.lab}
                     </p>
                   </div>
                   
                   <div className="flex flex-wrap gap-1.5 pt-1 items-center">
                     {proj.tools.map((tool, tIdx) => (
-                      <span key={tIdx} className={`text-[10px] font-bold tracking-wide px-2.5 py-0.5 rounded border shadow-sm border-transparent transform hover:scale-105 transition duration-150 ${getToolBadgeColor(tIdx)}`}>
+                      <span key={tIdx} className={`text-[9px] md:text-[10px] font-bold tracking-wide px-2.5 py-0.5 rounded border shadow-sm border-transparent transform hover:scale-105 transition duration-150 ${getToolBadgeColor(tIdx)}`}>
                         {tool}
                       </span>
                     ))}
@@ -508,7 +509,7 @@ export default function App() {
 
         {/* Bibliographic Publications Module */}
         <section id="publications" className="space-y-6">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
+          <h2 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
             <BookOpen size={22} className="text-blue-500" /> Publications & Preprints
           </h2>
           
@@ -516,23 +517,23 @@ export default function App() {
             {publications.map((pub, idx) => (
               <div 
                 key={idx} 
-                className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col md:flex-row items-start gap-4 justify-between"
+                className="bg-white border border-slate-200 rounded-xl p-5 md:p-6 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col md:flex-row items-start gap-4 justify-between"
               >
-                <div className="space-y-2 flex-grow max-w-3xl">
+                <div className="space-y-2 flex-grow max-w-3xl w-full">
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="text-[10px] font-bold uppercase tracking-widest bg-blue-50 text-blue-600 border border-blue-100 px-2 py-0.5 rounded-md">
                       Preprint
                     </span>
-                    <span className="text-xs font-semibold text-slate-400 italic">
+                    <span className="text-xs font-semibold text-slate-400 italic break-all">
                       {pub.venue}
                     </span>
                   </div>
                   
-                  <h3 className="text-lg font-bold text-slate-900 tracking-tight leading-snug">
+                  <h3 className="text-base md:text-lg font-bold text-slate-900 tracking-tight leading-snug">
                     {pub.title}
                   </h3>
                   
-                  <p className="text-sm text-slate-600 font-medium tracking-tight">
+                  <p className="text-xs md:text-sm text-slate-600 font-medium tracking-tight">
                     {pub.authors.split(', ').map((author, aIdx) => {
                       const isMe = author.includes("Y. Gupta");
                       return (
@@ -554,10 +555,11 @@ export default function App() {
                   )}
                 </div>
 
-                <div className="flex md:flex-col items-center gap-2 shrink-0 w-full md:w-auto pt-2 md:pt-0 border-t border-slate-100 md:border-none">
+                {/* Modified full-width mobile action layout blocks */}
+                <div className="flex flex-row md:flex-col items-center gap-2 shrink-0 w-full md:w-auto pt-4 md:pt-0 border-t border-slate-100 md:border-none mt-2 md:mt-0">
                   <button 
                     onClick={() => setExpandedPaper(expandedPaper === idx ? null : idx)}
-                    className="w-full md:w-32 inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition duration-150"
+                    className="flex-1 md:flex-none w-full md:w-32 inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition duration-150"
                   >
                     {expandedPaper === idx ? <><ChevronUp size={14}/> Hide Abstract</> : <><ChevronDown size={14}/> Abstract</>}
                   </button>
@@ -566,7 +568,7 @@ export default function App() {
                     href="https://arxiv.org/abs/2605.07702" 
                     target="_blank" 
                     rel="noreferrer" 
-                    className="w-full md:w-32 inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs font-semibold text-blue-600 hover:bg-blue-50 hover:border-blue-200 transition duration-150 shadow-sm"
+                    className="flex-1 md:flex-none w-full md:w-32 inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs font-semibold text-blue-600 hover:bg-blue-50 hover:border-blue-200 transition duration-150 shadow-sm"
                   >
                     <ExternalLink size={12}/> arXiv Link
                   </a>
@@ -578,10 +580,10 @@ export default function App() {
 
         {/* Leadership & Mentorship Layout */}
         <section id="mentorship" className="space-y-6">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
+          <h2 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
             <Award size={22} className="text-blue-600" /> Leadership & Mentorship
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {leadership.map((lead, idx) => (
               <div key={idx} className="flex flex-col bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-200">
                 
@@ -602,42 +604,15 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Unified Context Block */}
-                <div className="flex flex-col flex-grow p-5 space-y-2 bg-white">
-                  <div className="space-y-1">
-                    <h3 className="font-extrabold text-base text-slate-950 tracking-tight leading-snug line-clamp-2">
+                {/* Unified Context Block - No extra margin/padding gaps */}
+                <div className="flex flex-col flex-grow p-4 md:p-5 space-y-2 bg-white">
+                  <div className="space-y-0.5">
+                    <h3 className="font-extrabold text-sm md:text-base text-slate-950 tracking-tight leading-snug line-clamp-2">
                       {lead.role}
                     </h3>
-                    
-                    {/* Bulleting logic specifically applied for multiple courses separated by '&' */}
-                    {lead.role === "Undergraduate Teaching Assistant" && lead.initiative.includes('&') ? (
-                      <div className="flex flex-col space-y-1 pt-0.5">
-                        {(() => {
-                          const [coursesPart, deptPart] = lead.initiative.split(', ');
-                          const individualCourses = coursesPart.split(' & ');
-                          return (
-                            <>
-                              <ul className="list-disc list-inside space-y-0.5">
-                                {individualCourses.map((course, cIdx) => (
-                                  <li key={cIdx} className="text-xs font-semibold text-blue-600 tracking-wide">
-                                    <span className="align-middle">{course}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                              {deptPart && (
-                                <p className="text-[11px] font-medium text-slate-500 tracking-wide pt-0.5">
-                                  {deptPart}, IIT Bombay
-                                </p>
-                              )}
-                            </>
-                          );
-                        })()}
-                      </div>
-                    ) : (
-                      <p className="text-xs font-semibold text-blue-600 tracking-wide">
-                        {lead.initiative}
-                      </p>
-                    )}
+                    <p className="text-[11px] md:text-xs font-semibold text-blue-600 tracking-wide">
+                      {lead.initiative}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -647,11 +622,11 @@ export default function App() {
 
         {/* Selected Coursework Module */}
         <section id="coursework" className="space-y-6">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
+          <h2 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
             <GraduationCap size={22} className="text-blue-500" /> Selected Coursework
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 pt-2">
             {coursework.map((cat, idx) => {
               const thematicStyles = [
                 { border: "border-l-4 border-l-blue-500" },
@@ -663,11 +638,11 @@ export default function App() {
               return (
                 <div 
                   key={idx} 
-                  className={`bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between ${thematicStyles.border}`}
+                  className={`bg-white border border-slate-200 rounded-xl p-4 md:p-5 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between ${thematicStyles.border}`}
                 >
                   <div>
-                    <div className="flex items-center justify-between gap-2 mb-4">
-                      <h3 className="font-bold text-slate-900 tracking-tight text-sm uppercase tracking-wider">
+                    <div className="flex items-center justify-between gap-2 mb-3 md:mb-4">
+                      <h3 className="font-bold text-slate-900 tracking-tight text-xs md:text-sm uppercase tracking-wider">
                         {cat.category}
                       </h3>
                     </div>
@@ -689,11 +664,11 @@ export default function App() {
 
         {/* Extra-Curricular Activities Section */}
         <section id="extracurricular" className="space-y-6">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
+          <h2 className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-2 border-b border-slate-200 pb-2">
             <Compass size={22} className="text-blue-500" /> Extra-Curricular Activities
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 pt-2">
             <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col space-y-3 border-t-4 border-t-blue-500">
               <div className="flex flex-col space-y-0.5">
                 <span className="text-[10px] font-bold uppercase tracking-widest text-blue-600">Global & Cultural</span>
